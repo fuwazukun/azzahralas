@@ -1,64 +1,57 @@
+/* --- Color Variables & Fonts (Light Theme) --- */
 :root {
-    --color-dark-bg: #121212;
-    --color-text-light: #F0F0F0;
-    --color-neon-accent: #00FFFF;
-    --color-dark-surface: #1E1E1E;
-    --font-primary: 'Arial', sans-serif;
+    --color-primary-bg: #FFFFFF; /* White/Light background */
+    --color-secondary-bg: #F8F8F8; /* Very light gray for sections */
+    --color-text-dark: #333333; /* Dark text */
+    --color-accent: #455A64; /* Modern dark grey/blue for accents/links */
+    --color-hero-text: #FFFFFF; /* White text for the hero section */
+    --font-primary: 'Poppins', sans-serif; 
 }
 
+/* --- Global Reset & Base Styles --- */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
-.hero-wrap {
-  width: 100%;
-  height: 100%;
-  position: inherit;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: top center;
-  position: relative; }
-  @media (max-width: 991.98px) {
-    .hero-wrap {
-      background-position: center center !important; } }
-  .hero-wrap .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    content: '';
-    opacity: .2;
-    background: #000000; }
-  .hero-wrap.hero-wrap-2 {
-    height: 300px; }
-    .hero-wrap.hero-wrap-2 .overlay {
-      opacity: .6; }
-    .hero-wrap.hero-wrap-2 .slider-text {
-      height: 300px; }
+
 body {
-    background-color: var(--color-dark-bg);
-    color: var(--color-text-light);
     font-family: var(--font-primary);
+    background-color: var(--color-primary-bg);
+    color: var(--color-text-dark);
     line-height: 1.6;
 }
 
 .container {
     width: 90%;
-    max-width: 1100px;
-    margin: auto;
-    overflow: hidden;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .section-padding {
-    padding: 60px 0;
+    padding: 80px 0;
 }
 
+a {
+    text-decoration: none;
+    color: var(--color-accent);
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: var(--color-text-dark);
+}
+
+/* --- Header / Navbar --- */
 #main-header {
-    background: var(--color-dark-surface);
+    background-color: var(--color-primary-bg);
+    border-bottom: 1px solid #EEEEEE;
+    position: fixed; /* Make it stick to the top */
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
     padding: 15px 0;
-    border-bottom: 2px solid var(--color-neon-accent);
 }
 
 #main-header .container {
@@ -67,74 +60,170 @@ body {
     align-items: center;
 }
 
-#main-header h1 {
+.logo a {
     font-size: 24px;
-    color: var(--color-neon-accent);
+    font-weight: 700;
+    color: var(--color-accent); /* Logo color */
+    text-transform: uppercase;
 }
 
 #main-header nav {
     display: flex;
-    gap: 15px;
-    align-items: center; 
+    gap: 25px;
 }
 
 #main-header nav a {
-    color: var(--color-text-light);
-    text-decoration: none;
+    color: var(--color-text-dark);
+    font-weight: 400;
     text-transform: uppercase;
-    font-size: 14px;
-    transition: color 0.3s;
+    font-size: 15px;
 }
 
 #main-header nav a:hover {
-    color: var(--color-neon-accent);
+    color: var(--color-accent);
 }
 
-
+/* --- Hero Section (The Banner) --- */
 #hero {
+    margin-top: 55px; /* Offset for the fixed header height */
+    height: 60vh; /* Set a specific height */
+    min-height: 450px;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    padding: 100px 0;
-    background-color: rgba(0, 0, 0, 0.7);
-    background-blend-mode: multiply;
 }
 
-#hero h2 {
-    font-size: 48px;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    color: var(--color-neon-accent);
-    text-shadow: 0 0 5px var(--color-neon-accent); 
+#hero .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4); /* Dark overlay for text readability */
+    z-index: 1;
+}
+
+#hero .hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+#hero h1 {
+    font-size: clamp(36px, 6vw, 60px);
+    margin-bottom: 10px;
+    color: var(--color-hero-text);
+    font-weight: 700;
 }
 
 #hero p {
-    font-size: 18px;
-    margin-bottom: 30px;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
+    font-size: clamp(16px, 2.5vw, 24px);
+    color: var(--color-hero-text);
+    font-weight: 300;
+    max-width: 700px;
+    margin: 0 auto;
 }
 
-.btn-primary {
-    background: var(--color-neon-accent);
-    color: var(--color-dark-bg);
-    text-decoration: none;
-    padding: 12px 30px;
-    font-weight: bold;
+/* --- Services Section --- */
+.section-title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 50px;
+    color: var(--color-accent);
     text-transform: uppercase;
-    border-radius: 5px;
-    transition: background 0.3s, transform 0.3s;
-    display: inline-block;
 }
 
-.btn-primary:hover {
-    background: #00FFFF; 
-    transform: scale(1.05);
+.services-grid {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
 }
 
+.service-box {
+    background-color: var(--color-primary-bg);
+    border: 1px solid #E0E0E0;
+    padding: 30px;
+    text-align: center;
+    flex: 1;
+    min-width: 280px;
+    max-width: 350px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.service-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.service-box img {
+    margin-bottom: 20px;
+    width: 60px;
+    height: 60px;
+    /* Use real icon images for better look */
+}
+
+.service-box h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: var(--color-accent);
+}
+
+.service-box p {
+    font-size: 15px;
+    color: #666;
+}
+
+/* --- Footer --- */
 footer {
-    background: var(--color-dark-surface);
+    background-color: var(--color-accent);
+    color: var(--color-primary-bg);
     padding: 20px 0;
     text-align: center;
-    font-size: 12px;
-    color: #888;
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* --- Media Queries for Responsiveness --- */
+@media (max-width: 768px) {
+    #main-header .container {
+        flex-direction: column;
+    }
+    
+    #main-header {
+        padding: 10px 0;
+    }
+
+    #main-header nav {
+        margin-top: 10px;
+        gap: 15px;
+    }
+
+    #hero {
+        height: 50vh;
+        min-height: 350px;
+        margin-top: 80px; /* Adjust margin for stacked header on mobile */
+    }
+
+    .section-padding {
+        padding: 60px 0;
+    }
+
+    .services-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .service-box {
+        max-width: 100%;
+    }
 }
